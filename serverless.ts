@@ -27,13 +27,19 @@ const serverlessConfiguration: Serverless = {
         },
     },
     functions: {
-        hello: {
-            handler: 'handler.hello',
+        micropub: {
+            handler: 'src/handlers/micropub.handler',
             events: [
                 {
                     http: {
                         method: 'get',
-                        path: 'hello',
+                        path: 'micropub',
+                    },
+                },
+                {
+                    http: {
+                        method: 'post',
+                        path: 'micropub',
                     },
                 },
             ],
